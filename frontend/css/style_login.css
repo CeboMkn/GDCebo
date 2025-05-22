@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+
+    --imagen-fondo: url('../assets/img/fondo.jpg');
+    /* Fondo principal */
+    --color-bg-dark: rgb(42, 0, 63);
+    /* #2A003F */
+    --color-bg: rgb(58, 0, 88);
+    /* #3A0058 */
+    --color-bg-light: rgb(106, 13, 173);
+    /* #6A0DAD */
+
+    /* Detalles neón y acentos */
+    --color-accent: rgb(178, 120, 242);
+    /* #B278F2 */
+    --color-accent-light: rgb(210, 166, 255);
+    /* #D2A6FF */
+
+    /* Caja de login (fondo translúcido y borde) */
+    --color-login-bg: rgba(255, 255, 255, 0.05);
+    --color-login-border: rgba(210, 166, 255, 0.3);
+    --color-login-shadow: rgba(178, 120, 242, 0.2);
+
+    /* Texto */
+    --color-text-primary: rgb(240, 240, 255);
+    /* Muy claro, casi blanco */
+    --color-text-muted: rgb(180, 160, 220);
+    /* Más suave */
+}
+
+body {
+
+    height: 100vh;
+    background-image: var(--imagen-fondo);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.caja {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.219);
+    border-radius: 1rem;
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.747);
+    width: 380px;
+    height: 630px;
+}
+
+.logo img {
+    width: 300px;
+    height: auto;
+}
