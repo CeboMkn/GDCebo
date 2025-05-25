@@ -4,64 +4,194 @@
     padding: 0;
 }
 
+@font-face {
+    font-family: 'Inter';
+    src: url("../assets/fonts/Inter/Inter-VariableFont_opsz\,wght.ttf") format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url("../assets/fonts/Inter/Inter-Italic-VariableFont_opsz\,wght.ttf") format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
 :root {
-
     --imagen-fondo: url('../assets/img/fondo.jpg');
-    /* Fondo principal */
-    --color-bg-dark: rgb(42, 0, 63);
-    /* #2A003F */
-    --color-bg: rgb(58, 0, 88);
-    /* #3A0058 */
-    --color-bg-light: rgb(106, 13, 173);
-    /* #6A0DAD */
-
-    /* Detalles neón y acentos */
-    --color-accent: rgb(178, 120, 242);
-    /* #B278F2 */
-    --color-accent-light: rgb(210, 166, 255);
-    /* #D2A6FF */
-
-    /* Caja de login (fondo translúcido y borde) */
-    --color-login-bg: rgba(255, 255, 255, 0.05);
-    --color-login-border: rgba(210, 166, 255, 0.3);
-    --color-login-shadow: rgba(178, 120, 242, 0.2);
-
-    /* Texto */
-    --color-text-primary: rgb(240, 240, 255);
-    /* Muy claro, casi blanco */
-    --color-text-muted: rgb(180, 160, 220);
-    /* Más suave */
+    --color-oscuro: #10212e;
 }
 
 body {
-
     height: 100vh;
     background-image: var(--imagen-fondo);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .caja {
+    position: relative;
     display: flex;
     align-items: center;
-    flex-direction: column;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.219);
+    background-color: rgba(255, 255, 255, 0.425);
     border-radius: 1rem;
-    border: 2px solid white;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.747);
-    width: 380px;
-    height: 630px;
+    border: 2px solid rgb(255, 255, 255);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    width: 400px;
+    height: 440px;
 }
 
 .logo img {
     width: 300px;
     height: auto;
+}
+
+.form-box {
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-box form {
+    width: 300px;
+}
+
+.form-box h2 {
+    font-size: 2rem;
+    color: var(--color-oscuro);
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid var(--color-oscuro);
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: var(--color-oscuro);
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: var(--color-oscuro);
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2rem;
+    color: var(--color-oscuro);
+    line-height: 57px;
+}
+
+.olvidastes {
+    font-size: .9rem;
+    color: var(--color-oscuro);
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.olvidastes label input {
+    accent-color: var(--color-oscuro);
+    margin-right: 3px;
+
+}
+
+.olvidastes a {
+    color: var(--color-oscuro);
+    text-decoration: none;
+}
+
+.olvidastes a:hover{
+    text-decoration: underline;
+}
+
+.boton-entrar {
+    width: 100%;
+    height: 45px;
+    background: var(--color-oscuro);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+}
+
+.ir-registro {
+    font-size: .9rem;
+    color: var(--color-oscuro);
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.ir-registro p a {
+    color: #162938;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.ir-registro p a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .caja {
+        width: 300px;
+    }
+
+    .form-box form {
+        width: 250px;
+    }
+
+    .olvidastes {
+        align-items: center;
+    }
+
+    .olvidastes a {
+        width: 40%;
+    }
 }
