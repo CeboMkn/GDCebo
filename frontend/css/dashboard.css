@@ -26,6 +26,8 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     height: 100vh;
     background-image: var(--imagen-fondo);
     background-size: cover;
@@ -75,3 +77,100 @@ body {
 /*                   MAIN                   */
 /********************************************/
 
+/* Contenedor principal */
+.main {
+    flex: 1;
+    display: flex;
+    position: relative;
+    height: calc(100vh - 4rem);
+    /* Resta header + footer si miden 2rem cada uno */
+}
+
+/* Botón fijo a la izquierda, siempre visible */
+.menu-button-wrapper {
+    width: 3rem;
+    background: #9c9c9c;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 0.5rem;
+    z-index: 3;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+}
+
+.menu-button img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Área que contiene el sidebar y el contenido principal */
+.content {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    margin: 1rem;
+}
+
+.content.blur-activo .inser {
+    filter: blur(4px);
+    transition: filter 0.3s ease;
+}
+
+.inser {
+    transition: filter 0.3s ease;
+}
+
+/* Sidebar que aparece encima del contenido, sin cubrir header/footer */
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 15rem;
+    background: #444;
+    color: white;
+    padding: 1rem;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.sidebar.activo {
+    left: 3rem;
+    transform: translateX(0);
+}
+
+/* Contenido principal siempre ocupa el 100% del espacio visible */
+.inser {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.425);
+    color: rgb(0, 0, 0);
+    padding: 1rem;
+    overflow: auto;
+}
+
+
+
+
+/********************************************/
+/*                  FOOTER                  */
+/********************************************/
+.footer {
+    height: 4rem;
+    background-color: rgba(230, 230, 230, 0.877);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p {
+    color: black;
+}
