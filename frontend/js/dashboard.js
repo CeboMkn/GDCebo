@@ -1,4 +1,9 @@
+import { renderContraseñas, renderMiembros, renderNotas } from "./peticiones_vistas.js";
+
 function siderar_des() {
+
+    /*                    Despliegue                      */
+
     const menuBtnEntero = document.getElementById("menu-button-wrapper");
     const menuBtn = document.getElementById("menu-button");
     const sidebar = document.getElementById("sidebar");
@@ -26,4 +31,29 @@ function siderar_des() {
     });
 }
 
+/*                      Navegación                     */
+
+function render_vista() {
+
+    const inser = document.getElementById("inser")
+
+    const config_vistas = [
+        { id: 'nav-miembros', render: renderMiembros },
+        { id: 'nav-contraseñas', render: renderContraseñas },
+        { id: 'nav-notas', render: renderNotas }
+    ]
+
+    config_vistas.forEach(vista => {
+        const btn = document.getElementById(vista.id);
+        if (btn) {
+            btn.addEventListener("click", async () => {
+                const html = await vista.render();
+                inser.innerHTML = html;
+            });
+        }
+    })
+
+}
+
 siderar_des()
+render_vista()

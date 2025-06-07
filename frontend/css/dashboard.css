@@ -86,7 +86,10 @@ body {
     /* Resta header + footer si miden 2rem cada uno */
 }
 
-/* Botón fijo a la izquierda, siempre visible */
+/********************************************/
+/*                  SIDEBAR                 */
+/********************************************/
+
 .menu-button-wrapper {
     width: 3rem;
     background: #9c9c9c;
@@ -110,25 +113,6 @@ body {
     height: 100%;
 }
 
-/* Área que contiene el sidebar y el contenido principal */
-.content {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    margin: 1rem;
-}
-
-.content.blur-activo .inser {
-    filter: blur(4px);
-    transition: filter 0.3s ease;
-}
-
-.inser {
-    transition: filter 0.3s ease;
-}
-
-/* Sidebar que aparece encima del contenido, sin cubrir header/footer */
 .sidebar {
     position: absolute;
     top: 0;
@@ -148,17 +132,63 @@ body {
     transform: translateX(0);
 }
 
-/* Contenido principal siempre ocupa el 100% del espacio visible */
+/*                 Navigator                */
+
+.navigator {
+    display: flex;
+    justify-content: left;
+    margin-top: 1rem;
+}
+
+.navigator ul {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+}
+
+.navigator ul li {
+    cursor: pointer;
+}
+
+/********************************************/
+/*                CONTAINER                 */
+/********************************************/
+
+.content {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    margin: 1rem;
+}
+
+/* .content.blur-activo .inser {
+    filter: blur(4px);
+    transition: filter 0.3s ease;
+} */
+
 .inser {
     flex: 1;
     background-color: rgba(255, 255, 255, 0.425);
     color: rgb(0, 0, 0);
     padding: 1rem;
     overflow: auto;
+    transition: filter 0.3s ease;
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+/*             Añadir miembro               */
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /********************************************/
 /*                  FOOTER                  */
