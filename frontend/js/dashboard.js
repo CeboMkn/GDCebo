@@ -1,8 +1,10 @@
-import { renderContraseñas, renderMiembros, renderNotas } from "./peticiones_vistas.js";
+import { init_router } from "../src/router/router.js";
+
+/*                         Sidebar                        */
 
 function siderar_des() {
 
-    /*                    Despliegue                      */
+    /*             Constantes del sidebar                  */
 
     const menuBtnEntero = document.getElementById("menu-button-wrapper");
     const menuBtn = document.getElementById("menu-button");
@@ -10,12 +12,17 @@ function siderar_des() {
     const content = document.querySelector(".content");
 
     // Mostrar/ocultar al hacer clic en el botón
+
     menuBtn.addEventListener("click", () => {
         sidebar.classList.toggle("activo");
-        content.classList.toggle("blur-activo");
+
+        // Efecto blur al abrir el sidebar (si se quiere activar descomentar blur mas abajo y el css blur)
+        /* content.classList.toggle("blur-activo"); */
+
     });
 
     // Cerrar al hacer clic fuera del sidebar, menuBtn y menuBtnEntero
+
     document.addEventListener("click", (e) => {
         const clickFuera =
             !sidebar.contains(e.target) &&
@@ -26,34 +33,21 @@ function siderar_des() {
 
         if (clickFuera && sidebarVisible) {
             sidebar.classList.remove("activo");
-            content.classList.remove("blur-activo");
+            /* content.classList.remove("blur-activo"); */
         }
     });
 }
 
-/*                      Navegación                     */
 
-function render_vista() {
+/*                   Navegación/Rutas                   */
 
-    const inser = document.getElementById("inser")
 
-    const config_vistas = [
-        { id: 'nav-miembros', render: renderMiembros },
-        { id: 'nav-contraseñas', render: renderContraseñas },
-        { id: 'nav-notas', render: renderNotas }
-    ]
+// Funciones que se llaman cuando el DOM esta cargado
 
-    config_vistas.forEach(vista => {
-        const btn = document.getElementById(vista.id);
-        if (btn) {
-            btn.addEventListener("click", async () => {
-                const html = await vista.render();
-                inser.innerHTML = html;
-            });
-        }
-    })
+document.addEventListener("DOMContentLoaded", () => {
 
-}
-
-siderar_des()
-render_vista()
+    // ruta inicial
+    init_router();
+    // funciones del sidebar
+    siderar_des();
+});

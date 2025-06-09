@@ -4,8 +4,10 @@
 /*   Peticion de usuario   */
 /***************************/
 
+// Esto de momento no funciona, esta puesto que el boton entrar pase al dashboard directo
 
-document.getElementById('form-login').addEventListener('submit', async function (e) {
+
+/* document.getElementById('form-login').addEventListener('submit', async function (e) {
     e.preventDefault()
 
     const user = document.getElementById('user').value.trim()
@@ -30,4 +32,4 @@ document.getElementById('form-login').addEventListener('submit', async function 
     }else{
         alert(res.message || 'Usuario o contraseña incorrectos')
     }
-});
+}); */
