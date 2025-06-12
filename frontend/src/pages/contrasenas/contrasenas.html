@@ -1,11 +1,21 @@
 <div class="container">
-    <p>Añadir contraseñas</p>
-    <button id="open_mod_contr">Crear contraseña</button>
-</div>
-<div id="modal" class="modal-overlay hidden">
-  <div class="modal-content">
-    <button id="close_mod" class="close-button">✖</button>
-    <h2>Crear contraseña</h2>
-    <p>Este es el contenido del modal. Puedes poner aquí lo que quieras.</p>
+  <div class="container_herr_contr">
+    <div class="cont">
+      <input type="text" id="output" readonly placeholder="Contraseña generada">
+      <button id="generate">Generar contraseña</button>
+      <button id="copy">Copiar al portapapeles</button>
+    </div>
+
+    <div class="cont">
+      <label for="longitud">Longitud:</label>
+      <input type="number" id="longitud" value="10" min="5" max="128">
+    </div>
+
+    <div class="cont">
+      <label><input type="checkbox" id="minusculas" checked>a-z</label>
+      <label><input type="checkbox" id="mayusculas">A-Z</label>
+      <label><input type="checkbox" id="numeros">0-9</label>
+      <label><input type="checkbox" id="simbolos">!@#$%^&*</label>
+    </div>
   </div>
 </div>

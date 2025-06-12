@@ -83,7 +83,14 @@ body {
     display: flex;
     position: relative;
     height: calc(100vh - 4rem);
+    overflow-y: auto;
     /* Resta header + footer si miden 2rem cada uno */
+}
+
+.inser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /********************************************/
@@ -235,6 +242,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/*      Herramienta Generar Contraseña       */
+
+.container_herr_contr {
+    height: 40rem;
+    width: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    padding: 1rem;
+}
+
+.cont {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left
 }
 
 /********************************************/

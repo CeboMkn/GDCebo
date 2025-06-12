@@ -1,37 +1,33 @@
 export async function render() {
 
     // Peticion del html para la vista seleccionada
-    try {
-        const res = await fetch("src/pages/contrasenas/contrasenas.html");
-        return await res.text();
-    } catch (err) {
-        console.error('No se encuentra la vista "Contraseñas"', err);
-    }
+    return fetch("src/pages/contrasenas/contrasenas.html")
+        .then(res => res.text())  // convierte la respuesta en texto
+        .catch(err =>
+            console.error('No se encuentra la vista "Contraseñas"', err)
+        );
 }
 
 export function after_render() {
 
-    // Captura del modal
-    const modalOverlay = document.getElementById("modal");
+    /* // Guardamos en `m` nuestro modal (overlay completo)
+    const m = document.getElementById("modal");
 
-    // Captura botón que muestra el modal
-    const openBtn = document.getElementById("open_mod_contr");
+    // Un único listener de click en todo el documento para gestionar abrir y cerrar
+    document.addEventListener("click", e =>
+        // 1) Si clicamos en el botón de abrir modal…
+        e.target.matches("#open_mod_contr")
+            //    → eliminamos la clase "hidden" para hacerlo visible
+            ? m.classList.remove("hidden")
+            // 2) Si no, comprobamos si clicamos en la “X” o en el overlay… 
+            : (
+                e.target.matches("#close_mod")  //    clic en la “X” de cierre
+                || e.target === m               //    clic fuera del contenido (overlay)
+            )
+            //    → y si alguna de esas dos es true, añadimos "hidden" para ocultarlo
+            && m.classList.add("hidden")
+    ); */
 
-    // Captura del botón que cierra el modal
-    const closeBtn = document.getElementById("close_mod");
 
-    // Funciones que muestran y ocultan el modal
-    const openModal = () => modalOverlay.classList.remove("hidden");
-    const closeModal = () => modalOverlay.classList.add("hidden");
 
-    // Abrir modal
-    openBtn?.addEventListener("click", openModal);
-
-    // Cerrar con la X
-    closeBtn?.addEventListener("click", closeModal);
-
-    // Cerrar clicando fuera del contenido
-    modalOverlay?.addEventListener("click", e => {
-        if (e.target === modalOverlay) closeModal();
-    });
 }
