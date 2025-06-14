@@ -84,7 +84,7 @@ body {
     position: relative;
     height: calc(100vh - 4rem);
     overflow-y: auto;
-    /* Resta header + footer si miden 2rem cada uno */
+    /* Resta header + footer si miden 2rem cada uno de ellos*/
 }
 
 .inser {
